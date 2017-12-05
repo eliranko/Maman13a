@@ -40,9 +40,8 @@ public class ExamInputReader {
         int counter = 0;
         ArrayList<String> answers = new ArrayList<>();
         // Fetch the remaining question's answers
-        while(counter < NUM_OF_ANSWER_LINES && in.hasNextLine()) {
+        while(counter++ < NUM_OF_ANSWER_LINES && in.hasNextLine()) {
             answers.add(in.nextLine());
-            counter++;
         }
         
         return answers;

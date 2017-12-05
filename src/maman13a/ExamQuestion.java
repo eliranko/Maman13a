@@ -13,6 +13,8 @@ import java.util.Collections;
  * @author elira
  */
 public class ExamQuestion implements Comparable<ExamQuestion> {
+    private final String correctAnswer;
+    
     private String question;
     private ArrayList<String> answers;
         
@@ -24,6 +26,9 @@ public class ExamQuestion implements Comparable<ExamQuestion> {
     public ExamQuestion(String question, ArrayList<String> answers) {
         this.question = question;
         this.answers = answers;
+        
+        // Assuming the input was valid as requested
+        this.correctAnswer = answers.get(0);
     }
     
     /**
@@ -43,6 +48,14 @@ public class ExamQuestion implements Comparable<ExamQuestion> {
     }
     
     /**
+     * Get the question answer
+     * @return String containing the correct answer
+     */
+    public String getCorrectAnsewr() {
+        return this.correctAnswer;
+    }
+    
+    /**
      * Set the exam question
      * @param question String representing the question
      */
@@ -58,6 +71,9 @@ public class ExamQuestion implements Comparable<ExamQuestion> {
         this.answers = answers;
     }
     
+    /**
+     * Shuffle answers location
+     */
     public void shuffleAnswers() {
         Collections.shuffle(this.answers);
     }
