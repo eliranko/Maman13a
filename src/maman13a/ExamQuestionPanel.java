@@ -1,25 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package maman13a;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-/**
- *
- * @author elira
- */
 public class ExamQuestionPanel extends JPanel implements ActionListener {
     private final String QUESTION_MARK_ICON_PATH = "C:\\Users\\elira\\Desktop\\QuestionMark.png";
     private final String CHECK_MARK_ICON_PATH = "C:\\Users\\elira\\Desktop\\CheckMark.png";
@@ -30,21 +20,35 @@ public class ExamQuestionPanel extends JPanel implements ActionListener {
     private JLabel questionLabel;
     private ButtonGroup group;
     private String chosenAnswer;
+
+    /**
+     * Empty constructor
+     */
+    public ExamQuestionPanel() {
+        this.answerButtons = new ArrayList<>();
+        this.examQuestion = new ExamQuestion();
+        this.questionLabel = new JLabel();
+        this.group = new ButtonGroup();
+        this.chosenAnswer = "";
+    }
     
     /**
      * Constructor
      * @param examQuestion ExamQuestion object
      */
     public ExamQuestionPanel(ExamQuestion examQuestion) {
+        this();
         this.examQuestion = examQuestion;
-        answerButtons = new ArrayList<>();
-        chosenAnswer = "";
         
+        createExamQuestionPanel();
+    }
+
+    public void createExamQuestionPanel() {
         setLayout(new GridLayout(5, 1, 1, 1));
         addQuestionToPanel();
         addAnswersToPanel();
     }
-
+    
     /**
      * Get the question used in this panel
      * @return ExamQuestion object
@@ -82,6 +86,7 @@ public class ExamQuestionPanel extends JPanel implements ActionListener {
     public void clearSelection() {
         this.group.clearSelection();
         setIcon(QUESTION_MARK_ICON_PATH);
+        this.chosenAnswer = "";
     }
     
     /**

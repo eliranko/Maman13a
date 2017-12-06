@@ -1,23 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package maman13a;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- *
- * @author elira
- */
 public class ExamQuestion implements Comparable<ExamQuestion> {
     private final String correctAnswer;
     
     private String question;
     private ArrayList<String> answers;
-        
+
+    /**
+     * Empty constructor
+     */
+    public ExamQuestion() {
+        this.question = this.correctAnswer = "";
+        this.answers = new ArrayList<>();
+    }
+    
     /**
      * Constructor
      * @param question Exam question

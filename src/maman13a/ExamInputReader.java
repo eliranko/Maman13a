@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package maman13a;
 
 import java.io.File;
@@ -10,10 +5,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author elira
- */
 public class ExamInputReader {
     private static final int NUM_OF_ANSWER_LINES = 4;
     
@@ -37,10 +28,10 @@ public class ExamInputReader {
     }
     
     private static ArrayList<String> getAnswers(Scanner in) {
-        int counter = 0;
+        int answerCounter = 0;
         ArrayList<String> answers = new ArrayList<>();
         // Fetch the remaining question's answers
-        while(counter++ < NUM_OF_ANSWER_LINES && in.hasNextLine()) {
+        while(answerCounter++ < NUM_OF_ANSWER_LINES && in.hasNextLine()) {
             answers.add(in.nextLine());
         }
         

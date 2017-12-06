@@ -1,19 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package maman13a;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- *
- * @author elira
- */
 public class Exam {
     private ArrayList<ExamQuestion> questions;
+    
+    /**
+     * Empty constructor
+     */
+    public Exam() {
+        this.questions = new ArrayList<>();
+    }
     
     /**
      * Constructor

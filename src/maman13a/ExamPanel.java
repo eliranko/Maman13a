@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package maman13a;
 
 import java.awt.event.ActionEvent;
@@ -14,10 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-/**
- *
- * @author elira
- */
 public class ExamPanel extends JScrollPane implements ActionListener {
     private final String CLEAN_BUTTON_TEXT = "נקה";
     private final String SUBMIT_BUTTON_TEXT = "הגש";
@@ -27,18 +18,25 @@ public class ExamPanel extends JScrollPane implements ActionListener {
     
     private Exam exam;
     private JLabel submissionLabel;
+
+    /**
+     * Empty constructor
+     */
+    public ExamPanel() {
+        this.exam = new Exam();
+        this.questionPanels = new ArrayList<>();
+        this.submissionLabel = new JLabel();
+        setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_ALWAYS);
+    }
     
     /**
      * Constructor
      * @param exam Exam to be shown on the form
      */
     public ExamPanel(Exam exam) {
+        this();
         this.exam = exam;
-        questionPanels = new ArrayList<>();
-        
-        // Create exam panel
-        setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_ALWAYS);
-        setViewportView(getExamQuestionsPanel());
+        createExamPanel();
     }
 
     /**
@@ -50,11 +48,18 @@ public class ExamPanel extends JScrollPane implements ActionListener {
     }
     
     /**
-     * Set the form's exam
+     * Set the form's exam and update the form
      * @param exam Exam to be shown on the form
      */
     public void setExam(Exam exam) {
         this.exam = exam;
+    }
+    
+    /**
+     * Build exam panel
+     */
+    public void createExamPanel() {
+        setViewportView(getExamQuestionsPanel());
     }
     
     private JPanel getExamQuestionsPanel() {
